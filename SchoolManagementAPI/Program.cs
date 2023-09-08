@@ -1,4 +1,5 @@
 ﻿using Data.DataAccess;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementAPI.Extensions;
 
@@ -22,7 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddApplicationServices();
-//builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(opt => opt.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DataContext>();
 
 var app = builder.Build();
 

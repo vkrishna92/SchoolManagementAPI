@@ -11,12 +11,16 @@
     <None Remove="StudentModule\Models\" />
     <None Remove="Common\" />
     <None Remove="Common\Models\" />
+    <None Remove="Common\Dtos\" />
+    <None Remove="Common\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StudentModule\" />
     <Folder Include="StudentModule\Models\" />
     <Folder Include="Common\" />
     <Folder Include="Common\Models\" />
+    <Folder Include="Common\Dtos\" />
+    <Folder Include="Common\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
