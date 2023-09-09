@@ -42,6 +42,7 @@ namespace SchoolManagementAPI.Controllers
             var res = await _userManager.CreateAsync(user, registerDto.Password);
             if (!res.Succeeded)
                 return BadRequest(new ErrorResponse { StatusCode = HttpStatusCode.BadRequest, Message = "User registration failed." });
+            var loginRes =  await _userManager.CheckPasswordAsync(user, registerDto.Password);
             var userDto = new UserDto
             {
                 DisplayName = user.UserName,
@@ -50,5 +51,36 @@ namespace SchoolManagementAPI.Controllers
             };
             return Ok(userDto);
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = await _userManager.FindByNameAsync(model.UserName);
+
+            if (user == null)
+            {
+                return BadRequest("Invalid username or password.");
+            }
+
+            var result = await _userManager.CheckPasswordAsync(user, model.Password);
+
+            if (result)
+            {
+                // Generate and return a JWT token or other authentication response
+                // You can use a library like System.IdentityModel.Tokens.Jwt to create JWT tokens                
+                var token = _tokenService.CreateToken(user);
+                return Ok(new { token });
+                //return Ok(new { message = "Login successful" });
+            }            
+
+            return BadRequest("Invalid username or password.");
+        }
+
+
     }
 }

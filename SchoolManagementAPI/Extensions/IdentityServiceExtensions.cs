@@ -13,12 +13,7 @@ namespace SchoolManagementAPI.Extensions
             var builder = services.AddIdentityCore<IdentityUser>()
                 //.AddRoleManager<RoleManager<AppRole>>()
                 .AddEntityFrameworkStores<DataContext>()
-                .AddDefaultTokenProviders();
-            /*
-			builder = new IdentityBuilder(builder.UserType, builder.Services);
-			builder.AddEntityFrameworkStores<AppIdentityDbContext>();
-			builder.AddSignInManager<SignInManager<AppUser>>();
-			*/
+                .AddDefaultTokenProviders();            
             services.AddAuthentication();
             return services;
         }
