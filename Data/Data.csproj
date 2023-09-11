@@ -26,10 +26,12 @@
   <ItemGroup>
     <None Remove="DataAccess\" />
     <None Remove="Common\" />
+    <None Remove="Student\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\" />
     <Folder Include="Common\" />
+    <Folder Include="Student\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />

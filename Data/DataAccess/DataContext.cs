@@ -12,7 +12,8 @@ namespace Data.DataAccess
 		public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 		}
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Core.StudentModule.Models.Student> Students { get; set; }
     }
 }
 
+ 
