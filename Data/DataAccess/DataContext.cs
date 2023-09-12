@@ -13,6 +13,9 @@ namespace Data.DataAccess
         {
 		}
         public DbSet<Core.StudentModule.Models.Student> Students { get; set; }
+        public DbSet<Core.StudentModule.Models.Teacher> Teachers { get; set; }
+        public DbSet<Core.StudentModule.Models.StudentAttendance> StudentAttendances { get; set; }
+        public DbSet<Core.StudentModule.Models.Item> Items { get; set; }
     }
 }
 

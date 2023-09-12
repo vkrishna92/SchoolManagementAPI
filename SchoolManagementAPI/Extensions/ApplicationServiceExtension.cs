@@ -15,9 +15,9 @@ namespace SchoolManagementAPI.Extensions
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<IRepository<Core.StudentModule.Models.Student>, Repository<Core.StudentModule.Models.Student>>();
-            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            //services.AddScoped<IRepository<Student>, Repository<Student>>();
-            //services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<IRepository<Core.StudentModule.Models.Teacher>, Repository<Core.StudentModule.Models.Teacher>>();
+            services.AddScoped<IRepository<Core.StudentModule.Models.StudentAttendance>, Repository<Core.StudentModule.Models.StudentAttendance>>();
+            services.AddScoped<IRepository<Core.StudentModule.Models.Item>, Repository<Core.StudentModule.Models.Item>>();            
 
             return services;
         }

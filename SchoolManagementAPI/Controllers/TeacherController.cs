@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Common.Interfaces;
 using Core.StudentModule.Models;
-using Core.StudentModule.Services;
-using Data.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,20 +11,18 @@ namespace SchoolManagementAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
-    {
-        private readonly IStudentRepository _studentService;
-        private readonly IRepository<Student> _repository;
+    public class TeacherController : ControllerBase
+    {        
+        private readonly IRepository<Teacher> _repository;
 
-        public StudentController(IStudentRepository studentService, IRepository<Student> repository)
-        {
-            _studentService = studentService;
+        public TeacherController(IRepository<Teacher> repository)
+        {            
             _repository = repository;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
-        {            
+        {
             var res = await _repository.GetAll();
             return Ok(res);
         }
@@ -39,7 +35,7 @@ namespace SchoolManagementAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Insert(Student obj)
+        public async Task<IActionResult> Insert(Teacher obj)
         {
             _repository.Insert(obj);
             await _repository.Save();
@@ -47,7 +43,7 @@ namespace SchoolManagementAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(Student obj)
+        public async Task<IActionResult> Update(Teacher obj)
         {
             _repository.Update(obj);
             await _repository.Save();
@@ -60,6 +56,6 @@ namespace SchoolManagementAPI.Controllers
             _repository.Delete(id);
             await _repository.Save();
             return Ok();
-        }        
+        }
     }
 }

@@ -3,14 +3,13 @@ using Core.Common.Models;
 
 namespace Core.StudentModule.Models
 {
-	public class Student : BaseModel
-	{        
+	public class Teacher : BaseModel
+	{
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
         public string Email { get; set; }
-        public string Grade { get; set; }
-        public string Section { get; set; } 
     }
 }
+
