@@ -60,6 +60,12 @@ namespace SchoolManagementAPI.Controllers
             _repository.Delete(id);
             await _repository.Save();
             return Ok();
-        }        
+        }
+        [HttpPost("upload")]
+        public async Task<IActionResult> Upload(List<Student> students)
+        {
+            var ret = await _studentService.upload(students);
+            return Ok(ret);
+        }
     }
 }

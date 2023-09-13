@@ -17,8 +17,8 @@ namespace SchoolManagementAPI.Extensions
             services.AddScoped<IRepository<Core.StudentModule.Models.Student>, Repository<Core.StudentModule.Models.Student>>();
             services.AddScoped<IRepository<Core.StudentModule.Models.Teacher>, Repository<Core.StudentModule.Models.Teacher>>();
             services.AddScoped<IRepository<Core.StudentModule.Models.StudentAttendance>, Repository<Core.StudentModule.Models.StudentAttendance>>();
-            services.AddScoped<IRepository<Core.StudentModule.Models.Item>, Repository<Core.StudentModule.Models.Item>>();            
-
+            services.AddScoped<IRepository<Core.StudentModule.Models.Item>, Repository<Core.StudentModule.Models.Item>>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
             return services;
         }
     }
